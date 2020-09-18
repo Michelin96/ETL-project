@@ -1,4 +1,4 @@
---Create this table first becaurse it is the referenc for the other table foreign keys
+--Create this table first because it is the reference for the other table foreign keys
 CREATE TABLE imdb_rts (
     titleType VARCHAR(255),
     primaryTitle VARCHAR (255) NOT NULL,
