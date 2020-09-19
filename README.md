@@ -34,9 +34,3 @@ Create a new postgreSQL database. In the Tables Query Tool, run the code from th
 Note: The primary key in each table is a composite of the three data columns for title, year, and runtime.
 
 The queries.sql file contains sample queries to run on the database.
-
-* Filter the rows in the Netflix ratings
-* Sort by highest Netflix or RT rating
-* Sort by hightest IMDB Rating
-* Filter/aggregate the top 10 genres by both ratings (which genres have the highest average in both rating scales )
-* Show average difference (percentage basis) for ratings between imdb and netflix
