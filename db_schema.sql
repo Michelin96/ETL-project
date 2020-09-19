@@ -24,7 +24,15 @@ CREATE TABLE IF NOT EXISTS netflix_rts (
 	country varchar(255),
 	language varchar(255),
 	runtime INTEGER,	
-	PRIMARY KEY (title,year,runtime),
-	FOREIGN KEY (title,year,runtime) REFERENCES imdb_rts(primaryTitle, startYear, runtimeMinutes)
+	PRIMARY KEY (title,year,runtime)
 	
+);
+--Create junction table to identify movies in both and create a composite key
+CREATE TABLE IF NOT EXISTS junction(
+	title VARCHAR(255) NOT NULL,
+	year INTEGER NOT NULL,
+	runtime FLOAT NOT NULL,
+	PRIMARY KEY (title,year,runtime),
+	FOREIGN KEY (title,year,runtime) REFERENCES netflix_rts(title, year, runtime),
+	FOREIGN KEY (title,year,runtime) REFERENCES imdb_rts(primaryTitle, startYear, runtimeMinutes)
 );
