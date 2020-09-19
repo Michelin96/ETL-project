@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS netflix_rts (
 CREATE TABLE IF NOT EXISTS junction(
 	title VARCHAR(255) NOT NULL,
 	year INTEGER NOT NULL,
-	runtime FLOAT NOT NULL,
+	runtime INTEGER NOT NULL,
 	PRIMARY KEY (title,year,runtime),
 	FOREIGN KEY (title,year,runtime) REFERENCES netflix_rts(title, year, runtime),
 	FOREIGN KEY (title,year,runtime) REFERENCES imdb_rts(primaryTitle, startYear, runtimeMinutes)
