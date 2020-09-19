@@ -1,4 +1,12 @@
 --Create the tables, primary, and foreign keys
+--Create junction table to identify movies in both and create a composite key
+CREATE TABLE IF NOT EXISTS junction(
+	title VARCHAR(255) NOT NULL,
+	year INTEGER NOT NULL,
+	runtime FLOAT NOT NULL,
+	PRIMARY KEY (title,year,runtime)
+
+)
 --Create the imdb_rts table first because it is the reference for the other table foreign keys
 CREATE TABLE IF NOT EXISTS imdb_rts (
     titleType VARCHAR(255),
