@@ -33,4 +33,4 @@ Create a new postgreSQL database. In the Tables Query Tool, run the code from th
 
 Note: The primary key in each table is a composite of the three data columns for title, year, and runtime.
 
-The queries.sql file contains sample queries to run on the database.
+The queries.sql file contains a sample query to run on the database.
