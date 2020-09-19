@@ -1,4 +1,4 @@
---Create the tables,foreign, and primary keys
+--Create the tables, primary, and foreign keys
 --Create the imdb_rts table first because it is the reference for the other table foreign keys
 CREATE TABLE IF NOT EXISTS imdb_rts (
     titleType VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS imdb_rts (
     genres VARCHAR (255),
     averageRating FLOAT,
     numVotes FLOAT,
-    PRIMARY KEY (primaryTitle, startYear)
+    PRIMARY KEY (primaryTitle, startYear, runtimeMinutes)
 );
 
 -- Create the Netflix/Rotten Tomatoes table
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS netflix_rts (
 	country varchar(255),
 	language varchar(255),
 	runtime INTEGER,	
-	PRIMARY KEY (title,year),
-	FOREIGN KEY (title,year) REFERENCES imdb_rts(primaryTitle, startYear)
+	PRIMARY KEY (title,year,runtime),
+	FOREIGN KEY (title,year,runtime) REFERENCES imdb_rts(primaryTitle, startYear, runtimeMinutes)
 	
 );
