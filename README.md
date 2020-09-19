@@ -17,7 +17,7 @@ The IMDB data was in an SQLite file and downloaded from Data World (https://data
 
 Loading the tables in to the database presented some challenges. First, there were duplicate rows in the IMDB csv that needed to be dropped, so the file was loaded back in to jupyter notebook to removed those rows. So some of the titles sill showed as duplicates when using a primary composite key of the title and release year. Further investigation reveald that at least one title had a different runtime. The runtime was added to the composite key.
 
-Second, the data types in the age and runtime colums were not consistatnt. "Age" in the Netflixs table included a vaule of "all", so the datatype had to be changed to a string. Ratings were formated and decimals in one table, so both were changed to a float to accomodate the composite key. 
+Second, the data types in the age and runtime colums were not consistatnt. "Age" in the Netflix table included a vaule of "all", so the datatype had to be changed to a string. Ratings were formated and decimals in one table, so both were changed to a float to accomodate the composite key. 
 
 Third, titles in the IMDB csv used single quotes, which posgreSQL interpreted as end of strings. The csv was edited to add two single quotes to create an escape character for correct SQL data interpretation.
 
@@ -25,11 +25,17 @@ Third, titles in the IMDB csv used single quotes, which posgreSQL interpreted as
 
 You will need to have installed postreSQL (pgAdmin4). This can be found at <a href= "https://www.postgresql.org/download>postgresql.org">postgresql.org</a>.
 
-Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files. file in postgreSQL (pgAdmin4) to creat the tables. Load the csv's into the tables. The imdb.csv should be loaded first.
+The ETL_ERD.jpeg is a diagram that shows the table columns, data types, primary keys and relationship for this database.
 
-Datbase Queries
+Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files (see the ETL_ERD.jpeg for visual reference). Import the CSV's in to the tables in the following order: imdb_rts.csv, netflix_rts.csv, junction.csv.
 
-* Filter the rows with Netfilx ratings
+### Datbase Queries
+
+Note: The primary key in each table is a composite of the three data columns for title, year, and runtime.
+
+The queries.sql file contains sample queries to run on the database.
+
+* Filter the rows in the Netflix ratings
 * Sort by highest Netflix or RT rating
 * Sort by hightest IMDB Rating
 * Filter/aggregate the top 10 genres by both ratings (which genres have the highest average in both rating scales )
