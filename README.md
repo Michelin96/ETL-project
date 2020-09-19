@@ -6,7 +6,11 @@ This project takes movies that have been rated by two different sources and comp
 
 We decided to evaluate movies that have been rated by two popular sources, IMDB and Rotten Tomatoes. Our data set for IMDB ratings came from <a href="https://data.world/eng/imdb-movies">data.world</a> and the data set for Rotten Tomatoes ratings from <a href="https://www.kaggle.com/ruchi798/movies-on-netflix-prime-video-hulu-and-disney?select=MoviesOnStreamingPlatforms_updated.csv">www.kaggle.com.</a>
 
+
+
 ## Transformation
+IMDB Data 
+The IMDB data was in an SQLite file and downloaded from Data World (https://data.world/eng/imdb-movies). I used a jupyter notebook to extract the existing tables and create dataframes. I identified the two tables needed ('movies' and 'ratings') that provide the main information and keys between our two sources. After identifing the keys, I removed rows that where there was blank data for keys or other major fields. Then because the SQLite file was to large to move to our Master on Github, I saved the dataframe to a csv.
 
 ## Loading
 
@@ -26,3 +30,4 @@ Datbase Queries
 * Sort by highest Netflix or RT rating
 * Sort by hightest IMDB Rating
 * Filter/aggregate the top 10 genres by both ratings (which genres have the highest average in both rating scales )
+* Show average difference (percentage basis) for ratings between imdb and netflix
