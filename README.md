@@ -15,8 +15,6 @@ The IMDB data was in an SQLite file and downloaded from Data World (https://data
 
 ## Loading
 
-Use the db_schema.sql file in postgreSQL (pgAdmin4) to creat the tables. Load the csv's into the tables. The imdb.csv should be loaded first.
-
 Loading the tables in to the database presented some challenges. First, there were duplicate rows in the IMDB csv that needed to be dropped, so the file was loaded back in to jupyter notebook to removed those rows. So some of the titles sill showed as duplicates when using a primary composite key of the title and release year. Further investigation reveald that at least one title had a different runtime. The runtime was added to the composite key.
 
 Second, the data types in the age and runtime colums were not consistatnt. "Age" in the Netflixs table included a vaule of "all", so the datatype had to be changed to a string. Ratings were formated and decimals in one table, so both were changed to a float to accomodate the composite key. 
@@ -25,7 +23,9 @@ Third, titles in the IMDB csv used single quotes, which posgreSQL interpreted as
 
 ## How To Use The Database
 
-Use the db_schema.sql file in postgreSQL (pgAdmin4) to creat the tables. Load the csv's into the tables. The imdb.csv should be loaded first.
+You will need to have installed postreSQL (pgAdmin4). This can be found at <a href= "https://www.postgresql.org/download>postgresql.org">postgresql.org</a>.
+
+Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files. file in postgreSQL (pgAdmin4) to creat the tables. Load the csv's into the tables. The imdb.csv should be loaded first.
 
 Datbase Queries
 
