@@ -15,7 +15,7 @@ The IMDB data was in an SQLite file and downloaded from Data World (https://data
 
 ## Loading
 
-Loading the tables in to the database presented some challenges. First, there were duplicate rows in the IMDB csv that needed to be dropped, so the file was loaded back in to jupyter notebook to removed those rows. So some of the titles sill showed as duplicates when using a primary composite key of the title and release year. Further investigation reveald that at least one title had a different runtime. The runtime was added to the composite key.
+Loading the tables in to the database presented some challenges. First, there were duplicate rows in the IMDB csv that needed to be dropped, so the file was loaded back in to jupyter notebook to removed those rows. So some of the titles still showed as duplicates when using a primary composite key of the title and release year. Further investigation reveald that at least one title had a different runtime. The runtime was added to the composite key.
 
 Second, the data types in the age and runtime colums were not consistatnt. "Age" in the Netflix table included a vaule of "all", so the datatype had to be changed to a string. Ratings were formated and decimals in one table, so both were changed to a float to accomodate the composite key. 
 
