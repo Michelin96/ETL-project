@@ -25,7 +25,9 @@ Third, titles in the IMDB csv used single quotes, which posgreSQL interpreted as
 
 You will need to have installed postreSQL (pgAdmin4). This can be found at <a href= "https://www.postgresql.org/download>postgresql.org">postgresql.org</a>.
 
-Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files. file in postgreSQL (pgAdmin4) to creat the tables. Load the csv's into the tables. The imdb.csv should be loaded first.
+The ETL_ERD.jpeg is a diagram that shows the table columns, data types, primary keys and relationship for this database.
+
+Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files (see the ETL_ERD.jpeg for visual reference). Import the CSV's in to the tables in the following order: imdb_rts.csv, netflix_rts.csv, junction.csv.
 
 Datbase Queries
 
