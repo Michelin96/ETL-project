@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS imdb_rts (
     primaryTitle VARCHAR (255) NOT NULL,
     originalTitle VARCHAR (255),
     startYear INTEGER NOT NULL,
-    runtimeMinutes INTEGER,
+    runtimeMinutes float,
     genres VARCHAR (255),
     averageRating FLOAT,
     numVotes FLOAT,
@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS imdb_rts (
 CREATE TABLE IF NOT EXISTS netflix_rts (
 	title VARCHAR(255) NOT NULL,
 	year INTEGER NOT NULL,
-	age INTEGER, 
+	age varchar(5), 
 	rotten_tomatoes_prcnt FLOAT,
 	netflix integer NOT NULL,
 	directors varchar(255),
 	genres varchar(255),
 	country varchar(255),
 	language varchar(255),
-	runtime INTEGER,	
+	runtime float,	
 	PRIMARY KEY (title,year,runtime)
 	
 );
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS netflix_rts (
 CREATE TABLE IF NOT EXISTS junction(
 	title VARCHAR(255) NOT NULL,
 	year INTEGER NOT NULL,
-	runtime INTEGER NOT NULL,
+	runtime float NOT NULL,
 	PRIMARY KEY (title,year,runtime),
 	FOREIGN KEY (title,year,runtime) REFERENCES netflix_rts(title, year, runtime),
 	FOREIGN KEY (title,year,runtime) REFERENCES imdb_rts(primaryTitle, startYear, runtimeMinutes)
