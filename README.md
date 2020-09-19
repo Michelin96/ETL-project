@@ -29,9 +29,13 @@ The ETL_ERD.jpeg is a diagram that shows the table columns, data types, primary 
 
 Create a new postgreSQL database. In the Tables Query Tool, run the code from the db_schema.sql file. This will create the table schema for the three tables that correspond to the data CSV files (see the ETL_ERD.jpeg for visual reference). Import the CSV's in to the tables in the following order: imdb_rts.csv, netflix_rts.csv, junction.csv.
 
-Datbase Queries
+### Datbase Queries
 
-* Filter the rows with Netfilx ratings
+Note: The primary key in each table is a composite of the three data columns for title, year, and runtime.
+
+The queries.sql file contains sample queries to run on the database.
+
+* Filter the rows in the Netflix ratings
 * Sort by highest Netflix or RT rating
 * Sort by hightest IMDB Rating
 * Filter/aggregate the top 10 genres by both ratings (which genres have the highest average in both rating scales )
